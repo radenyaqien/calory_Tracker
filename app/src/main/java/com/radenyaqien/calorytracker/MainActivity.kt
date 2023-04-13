@@ -11,13 +11,16 @@ import androidx.navigation.compose.rememberNavController
 import com.radenyaqien.calorytracker.navigation.navigate
 import com.radenyaqien.calorytracker.ui.theme.CaloryTrackerTheme
 import com.radenyaqien.core.navigation.Route
+import com.radenyaqien.onboarding_presentation.gender.GenderScreen
 import com.radenyaqien.onboarding_presentation.welcome.WelcomeScreen
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            CaloryTrackerTheme {
+            CaloryTrackerTheme(darkTheme = false) {
                 val navController = rememberNavController()
                 MainNavigation(navController)
 
@@ -34,6 +37,9 @@ class MainActivity : ComponentActivity() {
 
             composable(Route.WELCOME) {
                 WelcomeScreen(navController::navigate)
+            }
+            composable(Route.GENDER) {
+                GenderScreen(onNavigate = navController::navigate)
             }
             composable(Route.AGE) {
 
