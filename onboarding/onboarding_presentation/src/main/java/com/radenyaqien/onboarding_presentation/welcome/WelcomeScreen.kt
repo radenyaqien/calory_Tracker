@@ -9,11 +9,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import com.radenyaqien.core.R
+import com.radenyaqien.core.navigation.Route
+import com.radenyaqien.core.util.UiEvent
 import com.radenyaqien.core_ui.LocalSpasing
 import com.radenyaqien.onboarding_presentation.ActionButton
 
 @Composable
-fun WelcomeScreen() {
+fun WelcomeScreen(onNavigate: (UiEvent.Navigate) -> Unit) {
     val localSpasing = LocalSpasing.current
     Column(
         modifier = Modifier
@@ -27,13 +29,13 @@ fun WelcomeScreen() {
             textAlign = TextAlign.Center,
             style = MaterialTheme.typography.h1,
 
-        )
+            )
         Spacer(
             modifier = Modifier.height(localSpasing.spaceMedium)
         )
         ActionButton(
             text = stringResource(id = R.string.next),
-            onclick = { /*TODO*/ },
+            onclick = { onNavigate(UiEvent.Navigate(Route.AGE)) },
             isEnabled = true,
             modifier = Modifier.align(Alignment.CenterHorizontally)
         )
