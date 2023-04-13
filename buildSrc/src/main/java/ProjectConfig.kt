@@ -1,6 +1,6 @@
 object ProjectConfig {
     const val appId = "com.radenyaqien.calorytracker"
-    const val compileSdk = 32
+    const val compileSdk = 33
     const val minSdk = 24
     const val targetSdk = 33
     const val versionCode = 1
