@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.radenyaqien.core.domain.DefaultPreferences
 import com.radenyaqien.core.domain.preferences.Preferences
+import com.radenyaqien.core.domain.use_case.FilterOutDigits
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -28,4 +29,9 @@ object AppModule {
     }
 
 
+    @Provides
+    @Singleton
+    fun provideFilteringDigits(): FilterOutDigits {
+        return FilterOutDigits()
+    }
 }
