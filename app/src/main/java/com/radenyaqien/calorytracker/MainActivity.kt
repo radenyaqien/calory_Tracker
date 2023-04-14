@@ -20,6 +20,7 @@ import com.radenyaqien.core.navigation.Route
 import com.radenyaqien.onboarding_presentation.activity.ActivityScreen
 import com.radenyaqien.onboarding_presentation.age.AgeScreen
 import com.radenyaqien.onboarding_presentation.gender.GenderScreen
+import com.radenyaqien.onboarding_presentation.goal.GoalScreen
 import com.radenyaqien.onboarding_presentation.height.HeightScreen
 import com.radenyaqien.onboarding_presentation.weight.WeightScreen
 import com.radenyaqien.onboarding_presentation.welcome.WelcomeScreen
@@ -80,7 +81,11 @@ class MainActivity : ComponentActivity() {
                 }
                 composable(Route.ACTIVITY) {
                     ActivityScreen(
-                        scaffoldState = scaffoldState,
+                        onNavigate = navController::navigate
+                    )
+                }
+                composable(Route.GOAL) {
+                    GoalScreen(
                         onNavigate = navController::navigate
                     )
                 }
