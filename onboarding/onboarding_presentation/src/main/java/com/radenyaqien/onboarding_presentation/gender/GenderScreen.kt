@@ -41,7 +41,7 @@ fun GenderScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(spacing.spaceLarge),
+            .padding(spacing.spaceMedium),
     ) {
         Column(
             modifier = Modifier.fillMaxSize(),

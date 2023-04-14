@@ -17,8 +17,11 @@ import androidx.navigation.compose.rememberNavController
 import com.radenyaqien.calorytracker.navigation.navigate
 import com.radenyaqien.calorytracker.ui.theme.CaloryTrackerTheme
 import com.radenyaqien.core.navigation.Route
+import com.radenyaqien.onboarding_presentation.activity.ActivityScreen
 import com.radenyaqien.onboarding_presentation.age.AgeScreen
 import com.radenyaqien.onboarding_presentation.gender.GenderScreen
+import com.radenyaqien.onboarding_presentation.height.HeightScreen
+import com.radenyaqien.onboarding_presentation.weight.WeightScreen
 import com.radenyaqien.onboarding_presentation.welcome.WelcomeScreen
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -60,6 +63,25 @@ class MainActivity : ComponentActivity() {
                         scaffoldState = scaffoldState,
                         onNavigate = navController::navigate,
                         modifier = Modifier.padding(paddingValues)
+                    )
+                }
+                composable(Route.HEIGHT) {
+                    HeightScreen(
+                        scaffoldState = scaffoldState,
+                        onNavigate = navController::navigate,
+                        modifier = Modifier.padding(paddingValues),
+                    )
+                }
+                composable(Route.WEIGHT) {
+                    WeightScreen(
+                        scaffoldState = scaffoldState,
+                        onNavigate = navController::navigate,
+                    )
+                }
+                composable(Route.ACTIVITY) {
+                    ActivityScreen(
+                        scaffoldState = scaffoldState,
+                        onNavigate = navController::navigate
                     )
                 }
             }
