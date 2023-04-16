@@ -3,8 +3,8 @@ package com.radenyaqien.calorytracker.di
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
-import com.radenyaqien.core.domain.DefaultPreferences
-import com.radenyaqien.core.domain.preferences.Preferences
+import com.radenyaqien.core.data.DefaultPreferences
+import com.radenyaqien.core.data.preferences.Preferences
 import com.radenyaqien.core.domain.use_case.FilterOutDigits
 import dagger.Module
 import dagger.Provides

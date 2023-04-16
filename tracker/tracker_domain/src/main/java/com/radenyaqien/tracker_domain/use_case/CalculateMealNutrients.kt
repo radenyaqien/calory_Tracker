@@ -4,7 +4,7 @@ import com.radenyaqien.core.domain.model.ActivityLevel
 import com.radenyaqien.core.domain.model.Gender
 import com.radenyaqien.core.domain.model.GoalType
 import com.radenyaqien.core.domain.model.UserInfo
-import com.radenyaqien.core.domain.preferences.Preferences
+import com.radenyaqien.core.data.preferences.Preferences
 import com.radenyaqien.tracker_domain.model.MealType
 import com.radenyaqien.tracker_domain.model.TrackedFood
 import kotlin.math.roundToInt

@@ -6,7 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.radenyaqien.core.domain.model.GoalType
-import com.radenyaqien.core.domain.preferences.Preferences
+import com.radenyaqien.core.data.preferences.Preferences
 import com.radenyaqien.core.navigation.Route
 import com.radenyaqien.core.util.UiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel

@@ -1,11 +1,12 @@
-package com.radenyaqien.core.domain
+package com.radenyaqien.core.data
 
 import android.content.SharedPreferences
+import com.radenyaqien.core.data.preferences.Preferences
+import com.radenyaqien.core.data.preferences.Preferences.Companion.KEY_SHOULD_SHOW_ONBROARDING
 import com.radenyaqien.core.domain.model.ActivityLevel
 import com.radenyaqien.core.domain.model.Gender
 import com.radenyaqien.core.domain.model.GoalType
 import com.radenyaqien.core.domain.model.UserInfo
-import com.radenyaqien.core.domain.preferences.Preferences
 
 class DefaultPreferences(private val sharePref: SharedPreferences) : Preferences {
     override fun saveGender(gender: Gender) {
@@ -83,5 +84,15 @@ class DefaultPreferences(private val sharePref: SharedPreferences) : Preferences
             fatRatio = fatRatio,
             proteinRatio = proteinRatio
         )
+    }
+
+    override fun saveShouldShowOnBoarding(shouldShow: Boolean) {
+        sharePref.edit()
+            .putBoolean(Preferences.KEY_SHOULD_SHOW_ONBROARDING, shouldShow)
+            .apply()
+    }
+
+    override fun loadShouldShowOnBoarding(): Boolean {
+        return sharePref.getBoolean(KEY_SHOULD_SHOW_ONBROARDING, true)
     }
 }

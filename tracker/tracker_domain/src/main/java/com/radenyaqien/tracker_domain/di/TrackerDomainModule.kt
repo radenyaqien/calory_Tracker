@@ -1,6 +1,6 @@
 package com.radenyaqien.tracker_domain.di
 
-import com.radenyaqien.core.domain.preferences.Preferences
+import com.radenyaqien.core.data.preferences.Preferences
 import com.radenyaqien.tracker_domain.repository.TrackerRepository
 import com.radenyaqien.tracker_domain.use_case.CalculateMealNutrients
 import com.radenyaqien.tracker_domain.use_case.DeleteTrackedFood
