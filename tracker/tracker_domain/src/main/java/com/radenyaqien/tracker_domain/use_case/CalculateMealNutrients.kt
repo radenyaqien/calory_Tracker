@@ -1,10 +1,10 @@
 package com.radenyaqien.tracker_domain.use_case
 
+import com.radenyaqien.core.data.preferences.Preferences
 import com.radenyaqien.core.domain.model.ActivityLevel
 import com.radenyaqien.core.domain.model.Gender
 import com.radenyaqien.core.domain.model.GoalType
 import com.radenyaqien.core.domain.model.UserInfo
-import com.radenyaqien.core.data.preferences.Preferences
 import com.radenyaqien.tracker_domain.model.MealType
 import com.radenyaqien.tracker_domain.model.TrackedFood
 import kotlin.math.roundToInt
@@ -21,9 +21,9 @@ class CalculateMealNutrients(
                 val foods = entry.value
                 MealNutrients(
                     carbs = foods.sumOf { it.carbs },
-                    protein = foods.sumOf { it.carbs },
-                    fat = foods.sumOf { it.carbs },
-                    calories = foods.sumOf { it.carbs },
+                    protein = foods.sumOf { it.protein },
+                    fat = foods.sumOf { it.fat },
+                    calories = foods.sumOf { it.calories },
                     mealType = type
                 )
             }
