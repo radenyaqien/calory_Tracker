@@ -1,6 +1,11 @@
 package com.radenyaqien.onboarding_presentation.welcome
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -9,13 +14,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import com.radenyaqien.core.R
-import com.radenyaqien.core.navigation.Route
-import com.radenyaqien.core.util.UiEvent
 import com.radenyaqien.core_ui.LocalSpasing
 import com.radenyaqien.onboarding_presentation.ActionButton
 
 @Composable
-fun WelcomeScreen(onNavigate: (UiEvent.Navigate) -> Unit) {
+fun WelcomeScreen(onNextClick: () -> Unit) {
     val localSpasing = LocalSpasing.current
     Column(
         modifier = Modifier
@@ -35,7 +38,7 @@ fun WelcomeScreen(onNavigate: (UiEvent.Navigate) -> Unit) {
         )
         ActionButton(
             text = stringResource(id = R.string.next),
-            onclick = { onNavigate(UiEvent.Navigate(Route.GENDER)) },
+            onclick = { onNextClick() },
             isEnabled = true,
             modifier = Modifier.align(Alignment.CenterHorizontally)
         )

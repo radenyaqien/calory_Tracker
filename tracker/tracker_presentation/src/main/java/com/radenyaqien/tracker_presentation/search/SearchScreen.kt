@@ -25,7 +25,7 @@ import com.radenyaqien.core.util.UiEvent
 import com.radenyaqien.core_ui.LocalSpasing
 import com.radenyaqien.tracker_domain.model.MealType
 import com.radenyaqien.tracker_presentation.R
-import com.radenyaqien.tracker_presentation.components.SearchTextField
+import com.radenyaqien.tracker_presentation.search.components.SearchTextField
 import com.radenyaqien.tracker_presentation.search.components.TrackableFoodItem
 import java.time.LocalDate
 
@@ -73,7 +73,9 @@ fun SearchScreen(
             onValueChange = {
                 viewModel.onEvent(SearchEvent.OnQueryChange(it))
             },
+            shouldShowHint = state.isHintVisible,
             onSearch = {
+                keyboardController?.hide()
                 viewModel.onEvent(SearchEvent.Onsearch)
             },
             onFocusChange = {
@@ -97,6 +99,7 @@ fun SearchScreen(
                         )
                     },
                     onTrack = {
+                        keyboardController?.hide()
                         viewModel.onEvent(
                             SearchEvent.OnTrackFoodClick(
                                 food = food.food,

@@ -6,7 +6,6 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.radenyaqien.core.data.preferences.Preferences
-import com.radenyaqien.core.navigation.Route
 import com.radenyaqien.core.util.UiEvent
 import com.radenyaqien.core.util.UiText
 import com.radenyaqien.onboarding_presentation.R
@@ -44,7 +43,7 @@ class WeightViewModel @Inject constructor(
                 return@launch
             }
             preferences.saveWeight(weight = weightNumber)
-            _uiEvent.send(UiEvent.Navigate(Route.ACTIVITY))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 

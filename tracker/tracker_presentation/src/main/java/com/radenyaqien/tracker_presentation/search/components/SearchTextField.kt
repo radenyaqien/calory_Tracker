@@ -1,4 +1,4 @@
-package com.radenyaqien.tracker_presentation.components
+package com.radenyaqien.tracker_presentation.search.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -50,7 +50,10 @@ fun SearchTextField(
                 onSearch()
                 defaultKeyboardAction(ImeAction.Search)
             }),
-            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
+            keyboardOptions = KeyboardOptions(
+                imeAction = ImeAction.Search,
+
+            ),
             modifier = Modifier
                 .clip(RoundedCornerShape(5.dp))
                 .padding(2.dp)

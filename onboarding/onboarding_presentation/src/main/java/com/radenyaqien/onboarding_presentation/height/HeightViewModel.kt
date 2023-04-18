@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.radenyaqien.core.data.preferences.Preferences
 import com.radenyaqien.core.domain.use_case.FilterOutDigits
-import com.radenyaqien.core.navigation.Route
 import com.radenyaqien.core.util.UiEvent
 import com.radenyaqien.core.util.UiText
 import com.radenyaqien.onboarding_presentation.R
@@ -46,7 +45,7 @@ class HeightViewModel @Inject constructor(
                 return@launch
             }
             preferences.saveHeight(height = height)
-            _uiEvent.send(UiEvent.Navigate(Route.WEIGHT))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 

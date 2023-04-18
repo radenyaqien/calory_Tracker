@@ -6,15 +6,11 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.radenyaqien.core.data.preferences.Preferences
-import com.radenyaqien.core.navigation.Route
-import com.radenyaqien.core.util.UiEvent
 import com.radenyaqien.tracker_domain.use_case.TrackerUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -28,28 +24,15 @@ class TrackerOverviewViewModel @Inject constructor(
         private set
     private var getFoodForDateJob: Job? = null
 
-    private val _uiEvent = Channel<UiEvent>()
-    val uiEvent = _uiEvent.receiveAsFlow()
 
     init {
+        refreshFoods()
         preferences.saveShouldShowOnBoarding(false)
     }
 
     fun onEvent(event: TrackerOverviewEvent) {
         when (event) {
-            is TrackerOverviewEvent.OnAddFoodClick -> {
-                viewModelScope.launch {
-                    _uiEvent.send(
-                        UiEvent.Navigate(
-                            route = Route.SEARCH
-                                    + "/${event.meal.mealType.name}"
-                                    + "/${state.date.dayOfMonth}"
-                                    + "/${state.date.monthValue}"
-                                    + "/${state.date.year}"
-                        )
-                    )
-                }
-            }
+
 
             is TrackerOverviewEvent.OnDeleteTrackedFoodClick -> {
                 viewModelScope.launch {
