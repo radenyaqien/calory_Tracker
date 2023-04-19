@@ -66,7 +66,7 @@ fun TrackedFoodItem(
                 .aspectRatio(1f)
                 .clip(RoundedCornerShape(topStart = 5.dp, bottomStart = 5.dp))
         )
-        Spacer(modifier = Modifier.height(spacing.spaceMedium))
+        Spacer(modifier = Modifier.width(spacing.spaceMedium))
         Column(
             modifier = Modifier.weight(1f)
         ) {
@@ -86,7 +86,7 @@ fun TrackedFoodItem(
                 style = MaterialTheme.typography.body2,
             )
         }
-        Spacer(modifier = Modifier.height(spacing.spaceMedium))
+        Spacer(modifier = Modifier.width(spacing.spaceMedium))
         Column(
             modifier = Modifier.fillMaxHeight(),
             verticalArrangement = Arrangement.Center

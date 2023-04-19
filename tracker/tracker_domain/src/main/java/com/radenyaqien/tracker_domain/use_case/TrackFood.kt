@@ -22,9 +22,9 @@ class TrackFood(
             TrackedFood(
                 name = food.name,
                 carbs = ((food.carbsPer100g / 100f) * amount).roundToInt(),
-                protein = ((food.carbsPer100g / 100f) * amount).roundToInt(),
-                fat = ((food.carbsPer100g / 100f) * amount).roundToInt(),
-                calories = ((food.carbsPer100g / 100f) * amount).roundToInt(),
+                protein = ((food.proteinPer100g / 100f) * amount).roundToInt(),
+                fat = ((food.fatPer100g / 100f) * amount).roundToInt(),
+                calories = ((food.caloriesPer100g / 100f) * amount).roundToInt(),
                 imageUrl = food.imageUrl,
                 mealType = mealType,
                 date = date,

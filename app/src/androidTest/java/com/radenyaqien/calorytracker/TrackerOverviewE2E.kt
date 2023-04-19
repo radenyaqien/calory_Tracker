@@ -168,17 +168,17 @@ class TrackerOverviewE2E {
             TrackableFood(
                 name = "banana",
                 imageUrl = null,
-                caloriesPer100g = 150,
-                proteinPer100g = 5,
-                carbsPer100g = 50,
-                fatPer100g = 1
+                caloriesPer100g = 384,
+                proteinPer100g = 2,
+                carbsPer100g = 69,
+                fatPer100g = 2
             )
         )
         val addedAmount = 150
         val expectedCalories = (1.5f * 150).roundToInt()
-        val expectedCarbs = (1.5f * 50).roundToInt()
-        val expectedProtein = (1.5f * 5).roundToInt()
-        val expectedFat = (1.5f * 1).roundToInt()
+        val expectedCarbs = (1.5f * 69).roundToInt()
+        val expectedProtein = (1.5f * 2).roundToInt()
+        val expectedFat = (1.5f * 2).roundToInt()
         composeRule.onNodeWithText("Add Breakfast")
             .assertDoesNotExist()
         composeRule.onNodeWithContentDescription("Breakfast").performClick()
@@ -209,7 +209,7 @@ class TrackerOverviewE2E {
                 .currentDestination
                 ?.route
                 ?.startsWith(Route.TRACKER_OVERVIEW)
-        )
+        ).isTrue()
         composeRule
             .onAllNodesWithText(expectedCarbs.toStr())
             .onFirst()

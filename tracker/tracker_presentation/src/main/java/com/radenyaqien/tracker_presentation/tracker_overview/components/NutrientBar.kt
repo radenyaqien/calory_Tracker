@@ -37,25 +37,25 @@ fun NutrientBar(
 
     LaunchedEffect(key1 = carbs) {
         carbsWidthratio.animateTo(
-            targetValue = (carbs * 4f) / calorieGoal
+            targetValue = ((carbs * 4f) / calorieGoal)
         )
     }
     LaunchedEffect(key1 = protein) {
         proteinWidthratio.animateTo(
-            targetValue = (protein * 4f) / calorieGoal
+            targetValue = ((protein * 4f) / calorieGoal)
         )
     }
-    LaunchedEffect(key1 = carbs) {
+    LaunchedEffect(key1 = fat) {
         fatWidthratio.animateTo(
-            targetValue = (fat * 9f) / calorieGoal
+            targetValue = ((fat * 9f) / calorieGoal)
         )
     }
 
     Canvas(modifier = modifier) {
         if (calories <= calorieGoal) {
-            val carbsWidth = carbsWidthratio.value * size.width
-            val proteinWidth = proteinWidthratio.value * size.width
-            val fatWidth = fatWidthratio.value * size.width
+            val carbsWidth = size.width * carbsWidthratio.value
+            val proteinWidth = size.width * proteinWidthratio.value
+            val fatWidth = size.width * fatWidthratio.value
             drawRoundRect(
                 color = background,
                 size = size,
@@ -64,7 +64,7 @@ fun NutrientBar(
             drawRoundRect(
                 color = FatColor,
                 size = Size(
-                    width = carbsWidth + proteinWidth + fatWidth,
+                    width = carbsWidth + fatWidth + proteinWidth ,
                     height = size.height
                 ),
                 cornerRadius = CornerRadius(100f)
@@ -72,7 +72,7 @@ fun NutrientBar(
             drawRoundRect(
                 color = ProteinColor,
                 size = Size(
-                    width = carbsWidth + proteinWidth,
+                    width = proteinWidth + carbsWidth,
                     height = size.height
                 ),
                 cornerRadius = CornerRadius(100f)

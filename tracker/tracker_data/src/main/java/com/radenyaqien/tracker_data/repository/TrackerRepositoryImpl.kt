@@ -32,7 +32,9 @@ class TrackerRepositoryImpl(
                         val lowerBound = calculatedCalories * 0.99f
                         val upperBound = calculatedCalories * 1.01f
                         it.nutriments.energyKcal100g in (lowerBound..upperBound)
-                    }.mapNotNull { it.toTrackableFood() }
+                    }.mapNotNull {
+                        it.toTrackableFood()
+                    }
             )
         } catch (e: Exception) {
             e.printStackTrace()
