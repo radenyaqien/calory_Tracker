@@ -26,14 +26,17 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.radenyaqien.core_ui.LocalSpasing
+import com.radenyaqien.tracker_domain.model.MealType
 import com.radenyaqien.tracker_domain.model.TrackedFood
 import com.radenyaqien.tracker_presentation.R
 import com.radenyaqien.tracker_presentation.components.NutrientsInfo
+import java.time.LocalDate
 
 @OptIn(ExperimentalCoilApi::class)
 @Composable
@@ -139,6 +142,20 @@ fun TrackedFoodItem(
         }
 
     }
+}
 
-
+@Preview
+@Composable
+fun TrackableFood() {
+    TrackedFoodItem(trackedFood = TrackedFood(
+        name = "banana",
+        "https://images.openfoodfacts.org/images/products/406/145/806/1117/front_de.136.100.jpg",
+        carbs = 10,
+        protein = 10,
+        fat = 100,
+        mealType = MealType.Breakfast,
+        amount = 100,
+        date = LocalDate.now(),
+        calories = 230
+    ), onDeleteClick = { /*TODO*/ })
 }

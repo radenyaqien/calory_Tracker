@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.radenyaqien.core_ui.LocalSpasing
 import com.radenyaqien.tracker_presentation.R
@@ -28,7 +29,7 @@ fun TrackerOverviewScreen(
 ) {
 
     val spacing = LocalSpasing.current
-    val state = viewModel.state
+    val state: TrackerOverviewState = viewModel.state
     val context = LocalContext.current
 
     LazyColumn(
@@ -99,4 +100,12 @@ fun TrackerOverviewScreen(
 
     }
 
+}
+
+@Preview
+@Composable
+fun Overview(){
+    TrackerOverviewScreen(onNavigateToSearch = { a,aa,w,d->
+
+    })
 }
